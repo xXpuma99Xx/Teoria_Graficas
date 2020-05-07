@@ -1,6 +1,8 @@
 #include "Grafica.hpp"
+#include "Funciones.hpp"
 
-Grafica::Grafica(){}
+Grafica::Grafica(){
+}
 
 Grafica::Grafica(std::vector<std::string> n,std::vector<std::string> e,std::vector<std::string> s)
 	:nodos{n}, entradas{e}, salidas{s} {
@@ -30,3 +32,33 @@ void Grafica::set_salidas(std::vector<std::string> salidas){
 	this->salidas = salidas;
 }
 
+size_t Grafica::str_nodo_mas_grande(){
+	size_t length {};
+	
+	for(size_t i{};i < nodos.size();i++)
+		if(nodos[i].size() > length)
+			length = nodos[i].size();
+
+	return length;
+}
+
+std::string Grafica::imprimir_header_matriz(){
+	std::vector<std::string> head {" "};
+
+	for(size_t i {};i < entradas.size();i++)
+		head.push_back(std::to_string(i+1));
+
+	return imprimir_headers(head);
+}
+
+std::string Grafica::imprimir_linea(){
+	std::string linea {"+"};
+
+	for(size_t i{};i < entradas.size() + 1;i++){
+		for(size_t j {};j < length;j++)
+			linea += "-";
+		linea += "+";
+	}
+
+	return linea + "\n";
+}

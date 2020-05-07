@@ -22,6 +22,9 @@ public:
 	std::vector<std::string> get_salidas();
 	void set_salidas(std::vector<std::string>);
 
+	size_t str_nodo_mas_grande();
+	std::string imprimir_header_matriz();
+	std::string imprimir_linea();
 };
 
 #endif
