@@ -5,6 +5,9 @@
 
 class Dirigida: public Grafica {
 public:
+	std::vector<int> sumatorias_p;
+	std::vector<int> sumatorias_n;
+	
 	Dirigida();
 	Dirigida(std::vector<std::string>,std::vector<std::string>,std::vector<std::string>);
 

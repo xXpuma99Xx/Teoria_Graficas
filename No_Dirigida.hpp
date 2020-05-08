@@ -5,6 +5,8 @@
 
 class No_Dirigida: public Grafica {
 public:
+	std::vector<int> sumatorias;
+	
 	No_Dirigida();
 	No_Dirigida(std::vector<std::string>,std::vector<std::string>,std::vector<std::string>);
 

@@ -16,19 +16,29 @@ std::string Dirigida::incidencia(){
 	tabla = imprimir_header_matriz();
 	for(size_t i {};i < nodos.size();i++){
 		std::string renglon;
+		int contador_p {};
+		int contador_n {};
 
 		renglon = "| " + nodos[i] + " |";
 		for(size_t j{};j < entradas.size();j++){
-			if(nodos[i] == entradas[j]&&nodos[i] == salidas[j])
+			if(nodos[i] == entradas[j]&&nodos[i] == salidas[j]){
 				renglon += "+-1|";
-			else if(nodos[i] == entradas[j])
+				contador_p++;
+				contador_n++;
+			}
+			else if(nodos[i] == entradas[j]){
 				renglon += " -1|";
-			else if(nodos[i] == salidas[j])
+				contador_n++;
+			}
+			else if(nodos[i] == salidas[j]){
 				renglon += "  1|";
+				contador_p++;
+			}
 			else
 				renglon += "  0|";
 		}
-
+		sumatorias_p.push_back(contador_p);
+		sumatorias_n.push_back(contador_n);
 		tabla += renglon + "\n" + linea;
 	}
 
