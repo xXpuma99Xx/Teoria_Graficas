@@ -1,5 +1,5 @@
 #include "Dirigida.hpp"
-
+#include "Funciones.hpp"
 
 Dirigida::Dirigida(){
 }
@@ -11,9 +11,14 @@ Dirigida::Dirigida(std::vector<std::string> n,std::vector<std::string> e,std::ve
 
 std::string Dirigida::incidencia(){
 	std::string tabla;
-	std::string linea {imprimir_linea()};
+	std::string linea {imprimir_linea(entradas.size() + 3 )};
+	std::vector<std::string> headers {" "};
 
-	tabla = imprimir_header_matriz();
+	for(size_t i {};i < entradas.size();i++)
+		headers.push_back(std::to_string(i+1));
+	headers.push_back("p");
+	headers.push_back("n");
+	tabla = imprimir_headers(headers);
 	for(size_t i {};i < nodos.size();i++){
 		std::string renglon;
 		int contador_p {};
@@ -25,20 +30,53 @@ std::string Dirigida::incidencia(){
 				renglon += "+-1|";
 				contador_p++;
 				contador_n++;
-			}
-			else if(nodos[i] == entradas[j]){
+			} else if(nodos[i] == entradas[j]){
 				renglon += " -1|";
 				contador_n++;
-			}
-			else if(nodos[i] == salidas[j]){
+			} else if(nodos[i] == salidas[j]){
 				renglon += "  1|";
 				contador_p++;
-			}
-			else
+			} else
 				renglon += "  0|";
 		}
+		renglon += imprimir_numero_entero(contador_p) + "|" + imprimir_numero_entero(contador_n) + "|";
 		sumatorias_p.push_back(contador_p);
 		sumatorias_n.push_back(contador_n);
+		tabla += renglon + "\n" + linea;
+	}
+
+	return tabla;
+}
+
+std::string Dirigida::Dirigida::adyacencia(){
+	std::string linea {imprimir_linea(nodos.size() + 1)};
+	std::vector<std::string> headers {" "};
+	std::vector<std::vector<double>> mat_aux;
+
+	for(size_t i {};i < nodos.size();i++)
+		headers.push_back(nodos[i]);
+
+	std::string tabla {imprimir_headers(headers)};
+	
+	for(size_t i {};i < nodos.size();i++){
+		std::string renglon;
+
+		renglon = "| " + nodos[i] + " |";
+		for(size_t j{};j < nodos.size();j++){
+			bool no_linea {true};
+			std::vector<double> vec_aux;
+
+			for(size_t k {};k < entradas.size();k++)
+				if(nodos[j] == entradas[k]&&nodos[i] == salidas[k])
+					no_linea = false;
+			if(no_linea){
+				renglon += "  0|";
+				vec_aux.push_back(0);
+			} else {
+				renglon += "  1|";
+				vec_aux.push_back(1);
+			}
+		}
 		tabla += renglon + "\n" + linea;
 	}
 

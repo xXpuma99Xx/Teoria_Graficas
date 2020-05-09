@@ -11,8 +11,8 @@ public:
 	No_Dirigida(std::vector<std::string>,std::vector<std::string>,std::vector<std::string>);
 
 	std::string incidencia();
-	/*
 	std::string adyacencia();
+	/*
 	std::string accesibilidad();
 
 	grado_de_vertices();

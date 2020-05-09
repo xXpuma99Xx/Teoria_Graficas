@@ -147,3 +147,14 @@ std::string imprimir_matriz(std::vector<std::vector<double>> m) {
 
 	return tabla;
 }
+
+std::string imprimir_numero_entero(int numero){
+	std::string numero_str {std::to_string(numero)};
+	
+	if(numero_str.size() < length){
+		for(size_t i {};i <= length - numero_str.size();i++)
+			numero_str = " " + numero_str;
+	}
+
+	return numero_str;
+}

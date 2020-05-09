@@ -42,19 +42,10 @@ size_t Grafica::str_nodo_mas_grande(){
 	return length;
 }
 
-std::string Grafica::imprimir_header_matriz(){
-	std::vector<std::string> head {" "};
-
-	for(size_t i {};i < entradas.size();i++)
-		head.push_back(std::to_string(i+1));
-
-	return imprimir_headers(head);
-}
-
-std::string Grafica::imprimir_linea(){
+std::string Grafica::imprimir_linea(size_t e){
 	std::string linea {"+"};
 
-	for(size_t i{};i < entradas.size() + 1;i++){
+	for(size_t i{};i < e;i++){
 		for(size_t j {};j < length;j++)
 			linea += "-";
 		linea += "+";
