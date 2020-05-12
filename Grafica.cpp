@@ -6,7 +6,7 @@ Grafica::Grafica(){
 
 Grafica::Grafica(std::vector<std::string> n,std::vector<std::string> e,std::vector<std::string> s)
 	:nodos{n}, entradas{e}, salidas{s} {
-	}
+}
 
 std::vector<std::string> Grafica::get_nodos(){
 	return nodos;

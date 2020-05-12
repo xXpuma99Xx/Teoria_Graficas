@@ -1,6 +1,5 @@
 #include "No_Dirigida.hpp"
 #include "Funciones.hpp"
-#include<iostream>
 
 No_Dirigida::No_Dirigida(){
 }
