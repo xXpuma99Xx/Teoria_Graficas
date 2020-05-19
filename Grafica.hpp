@@ -23,7 +23,7 @@ public:
 	void set_salidas(std::vector<std::string>);
 
 	size_t str_nodo_mas_grande();
-	std::string imprimir_linea(size_t);
+	std::string imprimir_linea(size_t,size_t);
 };
 
 #endif

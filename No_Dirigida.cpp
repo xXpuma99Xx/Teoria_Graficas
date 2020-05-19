@@ -9,14 +9,14 @@ No_Dirigida::No_Dirigida(std::vector<std::string> n,std::vector<std::string> e,s
 }
 
 std::string No_Dirigida::incidencia(){
-	std::string linea {imprimir_linea(entradas.size() + 2)};
+	std::string linea {imprimir_linea(entradas.size() + 2, 3)};
 	std::vector<std::string> headers {" "};
 
 	for(size_t i {};i < entradas.size();i++)
 		headers.push_back(std::to_string(i+1));
-	headers.push_back("p");
+	headers.push_back("s");
 
-	std::string tabla {imprimir_headers(headers)};
+	std::string tabla {imprimir_headers(headers,3)};
 
 	for(size_t i {};i < nodos.size();i++){
 		std::string renglon;
@@ -30,7 +30,7 @@ std::string No_Dirigida::incidencia(){
 			} else
 				renglon += "  0|";
 		}
-		renglon += imprimir_numero_entero(contador) + "|";
+		renglon += imprimir_numero_entero(contador,3) + "|";
 		sumatorias.push_back(contador);
 		tabla += renglon + "\n" + linea;
 	}
@@ -39,14 +39,14 @@ std::string No_Dirigida::incidencia(){
 }
 
 std::string No_Dirigida::adyacencia(){
-	std::string linea {imprimir_linea(nodos.size() + 1)};
+	std::string linea {imprimir_linea(nodos.size() + 1,3)};
 	std::vector<std::string> headers {" "};
 	std::vector<std::vector<double>> mat_aux;
 
 	for(size_t i {};i < nodos.size();i++)
 		headers.push_back(nodos[i]);
 
-	std::string tabla {imprimir_headers(headers)};
+	std::string tabla {imprimir_headers(headers,3)};
 	
 	for(size_t i {};i < nodos.size();i++){
 		std::string renglon;

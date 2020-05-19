@@ -28,6 +28,14 @@ public:
 	std::vector<double> v_x_m(std::vector<std::vector<double>>, std::vector<double>);
 	std::vector<double> vector_x_matriz(std::vector<double>);
 	std::vector<double> vector_x_inversa(std::vector<double>);
+	
+	std::vector<std::vector<double>> m_x_m(std::vector<std::vector<double>>, std::vector<std::vector<double>>);
+	std::vector<std::vector<double>> matriz_x_matriz(std::vector<std::vector<double>>);
+	std::vector<std::vector<double>> matriz_x_inversa(std::vector<std::vector<double>>);
+
+	std::vector<std::vector<double>> m_s_m(std::vector<std::vector<double>>, std::vector<std::vector<double>>);
+	std::vector<std::vector<double>> matriz_s_matriz(std::vector<std::vector<double>>);
+	std::vector<std::vector<double>> matriz_s_inversa(std::vector<std::vector<double>>);
 };
 
 #endif

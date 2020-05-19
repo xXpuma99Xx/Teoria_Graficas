@@ -33,20 +33,20 @@ void Grafica::set_salidas(std::vector<std::string> salidas){
 }
 
 size_t Grafica::str_nodo_mas_grande(){
-	size_t length {};
+	size_t tamanio {};
 	
 	for(size_t i{};i < nodos.size();i++)
-		if(nodos[i].size() > length)
-			length = nodos[i].size();
+		if(nodos[i].size() > tamanio)
+			tamanio = nodos[i].size();
 
-	return length;
+	return tamanio;
 }
 
-std::string Grafica::imprimir_linea(size_t e){
+std::string Grafica::imprimir_linea(size_t e, size_t tamanio){
 	std::string linea {"+"};
 
 	for(size_t i{};i < e;i++){
-		for(size_t j {};j < length;j++)
+		for(size_t j {};j < tamanio;j++)
 			linea += "-";
 		linea += "+";
 	}

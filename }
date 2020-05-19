@@ -1,5 +1,6 @@
 #include "Matriz.hpp"
 #include "Funciones.hpp"
+#include <iostream>
 
 Matriz::Matriz() {}
 
@@ -129,9 +130,13 @@ std::vector<std::vector<double>> Matriz::m_x_m(std::vector<std::vector<double>> 
 			double suma{};
 
 			for(size_t k{};k < n;k++)
-				suma += a[i][k]*b[k][j]; 
+				//suma += a[j][k]*b[k][j]; 
+				std::cout <<  a[j][k] << "*" << b[k][j] << " + ";
+		}
+		std::cout << std::endl;
 			fila.push_back(suma);
 		}
+		std::cout << std::endl;
 		resultado.push_back(fila);
 	}
 
@@ -144,27 +149,4 @@ std::vector<std::vector<double>> Matriz::matriz_x_matriz(std::vector<std::vector
 
 std::vector<std::vector<double>> Matriz::matriz_x_inversa(std::vector<std::vector<double>>b){
 	return m_x_m(inversa ,b);
-}
-
-std::vector<std::vector<double>> Matriz::m_s_m(std::vector<std::vector<double>> a, std::vector<std::vector<double>> b){
-	std::vector<std::vector<double>> resultado;
-	size_t n {a.size()};
-
-	for(size_t i{};i < n;i++){
-		std::vector<double> fila;
-
-		for(size_t j{};j < n;j++)
-			fila.push_back(a[i][j]+b[i][j]);
-		resultado.push_back(fila);
-	}
-	
-	return resultado;
-}
-
-std::vector<std::vector<double>> Matriz::matriz_s_matriz(std::vector<std::vector<double>>b){
-	return m_s_m(matriz,b);
-}
-
-std::vector<std::vector<double>> Matriz::matriz_s_inversa(std::vector<std::vector<double>>b){
-	return m_s_m(inversa ,b);
 }
