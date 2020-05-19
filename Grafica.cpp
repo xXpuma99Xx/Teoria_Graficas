@@ -53,3 +53,16 @@ std::string Grafica::imprimir_linea(size_t e, size_t tamanio){
 
 	return linea + "\n";
 }
+
+std::string Grafica::accesibilidad(){
+	Matriz m_aux {ad};
+	Matriz acumulada {ad};
+
+	for(size_t i{1};i < nodos.size()-1;i++){
+		m_aux = Matriz {m_aux.matriz_x_matriz(ad.matriz),true};
+		acumulada = Matriz {acumulada.matriz_s_matriz(m_aux.matriz),true};
+	}
+	ac = acumulada;
+
+	return ac.imprimir_tabla_matriz();
+}

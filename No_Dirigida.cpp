@@ -88,7 +88,6 @@ std::string No_Dirigida::grado_de_vertices(){
 		tabla += "| " + nodos[i] + " |" + imprimir_numero_entero(sumatorias[i],3) + "|\n";
 	
 	return tabla + linea;
-
 }
 
 std::string No_Dirigida::aislados(){
@@ -130,7 +129,7 @@ std::string No_Dirigida::lineas_paralelas(){
 
 	for(size_t i{};i < n;i++){
 		for(size_t j{i+1};j < n;j++){
-			if(entradas[i] == entradas[j]&&salidas[i] == salidas[j]){
+			if((entradas[i] == entradas[j]&&salidas[i] == salidas[j])||(entradas[i] == salidas[j]&&salidas[i] == entradas[j])){
 				tabla += "|  (" + entradas[i] + "," + salidas[i] + ")  |\n";
 				break;
 			}
@@ -158,4 +157,19 @@ std::string No_Dirigida::bucles(){
 }
 
 std::string No_Dirigida::lineas_serie(){
+}
+
+std::string No_Dirigida::simple_general(){
+}
+
+std::string No_Dirigida::conectada_desconectada(){
+}
+
+std::string No_Dirigida::regular(){
+}
+
+std::string No_Dirigida::completa(){
+}
+
+std::string No_Dirigida::arbol(){
 }

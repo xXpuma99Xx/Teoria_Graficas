@@ -136,3 +136,57 @@ std::string Dirigida::final_(){
 		tabla += linea;
 	return tabla;
 }
+
+std::string Dirigida::lineas_paralelas(){
+	std::string linea {imprimir_linea(1,9)};
+	std::vector<std::string> headers {"Paralelas"};
+	std::string tabla {imprimir_headers(headers,9)};
+	size_t aux{tabla.size()};
+	size_t n{entradas.size()};
+
+	for(size_t i{};i < n;i++){
+		for(size_t j{i+1};j < n;j++){
+			if(entradas[i] == entradas[j]&&salidas[i] == salidas[j]){
+				tabla += "|  (" + entradas[i] + "," + salidas[i] + ")  |\n";
+				break;
+			}
+		}
+	}
+	if(tabla.size() > aux)
+		tabla += linea;
+
+	return tabla;
+}
+
+std::string Dirigida::bucles(){
+	std::string linea {imprimir_linea(1,6)};
+	std::vector<std::string> headers {"Bucles"};
+	std::string tabla {imprimir_headers(headers,6)};
+	size_t aux{tabla.size()};
+
+	for(size_t i{};i < ad.matriz.size();i++)
+		if(ad.matriz[i][i] == 1)
+			tabla += "|   " + nodos[i] + "  |\n";
+	if(tabla.size() > aux)
+		tabla += linea;
+
+	return tabla;
+}
+
+std::string simple_general(){
+}
+
+std::string conectada_desconectada(){
+}
+
+std::string regular(){
+}
+
+std::string completa(){
+}
+
+std::string simetrica(){
+}
+
+std::string balanceada(){
+}

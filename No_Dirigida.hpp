@@ -12,7 +12,6 @@ public:
 
 	std::string incidencia();
 	std::string adyacencia();
-	std::string accesibilidad();
 
 	std::string grado_de_vertices();
 	std::string aislados();
