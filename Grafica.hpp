@@ -1,14 +1,17 @@
 #ifndef _GRAFICA_H_
 #define _GRAFICA_H_
 
-#include<vector>
-#include<string>
+#include <vector>
+#include <string>
+#include "Matriz.hpp"
 
 class Grafica {
 public:
 	std::vector<std::string> nodos;
 	std::vector<std::string> entradas;
 	std::vector<std::string> salidas;
+	Matriz ad;
+	Matriz ac;
 
 	Grafica();
 	Grafica(std::vector<std::string>,std::vector<std::string>,std::vector<std::string>);

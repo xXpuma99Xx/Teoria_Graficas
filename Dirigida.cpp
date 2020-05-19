@@ -56,11 +56,11 @@ std::string Dirigida::Dirigida::adyacencia(){
 	
 	for(size_t i {};i < nodos.size();i++){
 		std::string renglon;
+		std::vector<double> vec_aux;
 
 		renglon = "| " + nodos[i] + " |";
 		for(size_t j{};j < nodos.size();j++){
 			bool no_linea {true};
-			std::vector<double> vec_aux;
 
 			for(size_t k {};k < entradas.size();k++)
 				if(nodos[j] == entradas[k]&&nodos[i] == salidas[k])
@@ -73,8 +73,10 @@ std::string Dirigida::Dirigida::adyacencia(){
 				vec_aux.push_back(1);
 			}
 		}
+		mat_aux.push_back(vec_aux);
 		tabla += renglon + "\n" + linea;
 	}
+	ad = Matriz{mat_aux,true};
 
 	return tabla;
 }

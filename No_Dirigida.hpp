@@ -17,18 +17,16 @@ public:
 	std::string grado_de_vertices();
 	std::string aislados();
 	std::string colgante();
-	/*
 
-	lineas_paralelas();
-	bucles();
+	std::string lineas_paralelas();
+	std::string bucles();
+	std::string lineas_serie();
 
-	simple_general();
-	conectada_desconectada();
-	regular();
-	completa();
-	simetrica(); // digrafica
-	balanceada(); // digrafica
-	*/
+	std::string simple_general();
+	std::string conectada_desconectada();
+	std::string regular();
+	std::string completa();
+	std::string arbol();
 };
 
 #endif

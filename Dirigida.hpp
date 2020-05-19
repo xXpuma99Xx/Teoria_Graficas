@@ -19,13 +19,16 @@ public:
 	std::string aislados();
 	std::string inicial();
 	std::string final_();
-	/*
-	simple_general();
-	conectada_desconectada();
-	regular();
-	completa();
-	arbol(); // grafica
-	*/
+
+	std::string lineas_paralelas();
+	std::string bucles();
+
+	std::string simple_general();
+	std::string conectada_desconectada();
+	std::string regular();
+	std::string completa();
+	std::string simetrica();
+	std::string balanceada();
 };
 
 #endif
