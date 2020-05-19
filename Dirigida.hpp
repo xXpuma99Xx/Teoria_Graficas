@@ -14,9 +14,12 @@ public:
 	std::string incidencia();
 	std::string adyacencia();
 	std::string accesibilidad();
-	/*
-	grado_de_vertices();
 
+	std::string grado_de_vertices();
+	std::string aislados();
+	std::string inicial();
+	std::string final_();
+	/*
 	simple_general();
 	conectada_desconectada();
 	regular();

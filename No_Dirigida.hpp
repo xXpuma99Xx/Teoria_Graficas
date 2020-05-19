@@ -12,13 +12,12 @@ public:
 
 	std::string incidencia();
 	std::string adyacencia();
-	/*
 	std::string accesibilidad();
 
-	grado_de_vertices();
-	aislados();
-	inicial(); // digrafica
-	final(); // digrafica
+	std::string grado_de_vertices();
+	std::string aislados();
+	std::string colgante();
+	/*
 
 	lineas_paralelas();
 	bucles();

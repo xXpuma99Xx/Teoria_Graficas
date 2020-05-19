@@ -10,13 +10,11 @@ Dirigida::Dirigida(std::vector<std::string> n,std::vector<std::string> e,std::ve
 
 std::string Dirigida::incidencia(){
 	std::string tabla;
-	std::string linea {imprimir_linea(entradas.size() + 3 , 3)};
+	std::string linea {imprimir_linea(entradas.size() + 1 , 3)};
 	std::vector<std::string> headers {" "};
 
 	for(size_t i {};i < entradas.size();i++)
 		headers.push_back(std::to_string(i+1));
-	headers.push_back("p");
-	headers.push_back("n");
 	tabla = imprimir_headers(headers,3);
 	for(size_t i {};i < nodos.size();i++){
 		std::string renglon;
@@ -38,7 +36,6 @@ std::string Dirigida::incidencia(){
 			} else
 				renglon += "  0|";
 		}
-		renglon += imprimir_numero_entero(contador_p,3) + "|" + imprimir_numero_entero(contador_n,3) + "|";
 		sumatorias_p.push_back(contador_p);
 		sumatorias_n.push_back(contador_n);
 		tabla += renglon + "\n" + linea;
@@ -79,5 +76,61 @@ std::string Dirigida::Dirigida::adyacencia(){
 		tabla += renglon + "\n" + linea;
 	}
 
+	return tabla;
+}
+
+std::string Dirigida::grado_de_vertices(){
+	std::string linea {imprimir_linea(3,3)};
+	std::vector<std::string> headers {" ","+","-"};
+	std::string tabla {imprimir_headers(headers,3)};
+
+	for(size_t i {};i < nodos.size();i++)
+		tabla += "| " + nodos[i] + " |" + imprimir_numero_entero(sumatorias_p[i],3) + "|" + imprimir_numero_entero(sumatorias_n[i],3) + "|\n";
+	
+	return tabla + linea;
+}
+
+std::string Dirigida::aislados(){
+	std::string linea {imprimir_linea(1,7)};
+	std::vector<std::string> headers {"Aislado"};
+	std::string tabla {imprimir_headers(headers,7)};
+	size_t aux{tabla.size()};
+
+	for(size_t i {};i < nodos.size();i++)
+		if(sumatorias_p[i] == 0&&sumatorias_n[i] == 0)
+			tabla += "|   " + nodos[i] + "   |\n";
+	
+	if(tabla.size() > aux)
+		tabla += linea;
+	return tabla;
+}
+
+std::string Dirigida::inicial(){
+	std::string linea {imprimir_linea(1,7)};
+	std::vector<std::string> headers {"Inicial"};
+	std::string tabla {imprimir_headers(headers,7)};
+	size_t aux{tabla.size()};
+
+	for(size_t i {};i < nodos.size();i++)
+		if(sumatorias_p[i] > 0&&sumatorias_n[i] == 0)
+			tabla += "|   " + nodos[i] + "   |\n";
+	
+	if(tabla.size() > aux)
+		tabla += linea;
+	return tabla;
+}
+
+std::string Dirigida::final_(){
+	std::string linea {imprimir_linea(1,5)};
+	std::vector<std::string> headers {"Final"};
+	std::string tabla {imprimir_headers(headers,5)};
+	size_t aux{tabla.size()};
+
+	for(size_t i {};i < nodos.size();i++)
+		if(sumatorias_p[i] == 0&&sumatorias_n[i] > 0)
+			tabla += "|  " + nodos[i] + "  |\n";
+	
+	if(tabla.size() > aux)
+		tabla += linea;
 	return tabla;
 }
