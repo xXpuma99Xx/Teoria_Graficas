@@ -23,9 +23,7 @@ public:
 	std::string bucles();
 
 	std::string simple_general();
-	std::string conectada_desconectada();
 	std::string regular();
-	std::string completa();
 	std::string simetrica();
 	std::string balanceada();
 };

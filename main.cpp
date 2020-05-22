@@ -62,6 +62,9 @@ void grafica_dirigida(std::vector<std::string> n, std::vector<std::string> s, st
 	std::cout << grafica.final_() << std::endl;
 	std::cout << grafica.lineas_paralelas() << std::endl;
 	std::cout << grafica.bucles() << std::endl;
+	std::cout << grafica.simple_general() << std::endl;
+	std::cout << grafica.conectada_desconectada() << std::endl;
+	std::cout << grafica.completa() << std::endl;
 }
 
 void grafica_no_dirigida(std::vector<std::string> n, std::vector<std::string> s, std::vector<std::string> e){
@@ -70,13 +73,14 @@ void grafica_no_dirigida(std::vector<std::string> n, std::vector<std::string> s,
 	std::cout << "Matriz Incidencia\n" << grafica.incidencia() << std::endl;
 	std::cout << "Matriz Adyacencia\n" << grafica.adyacencia() << std::endl;
 	std::cout << "Matriz Accesibilidad\n" << grafica.accesibilidad() << std::endl;
-	std::cout << grafica.incidencia() << std::endl;
-	std::cout << grafica.adyacencia() << std::endl;
 	std::cout << grafica.grado_de_vertices() << std::endl;
 	std::cout << grafica.aislados() << std::endl;
 	std::cout << grafica.colgante() << std::endl;
 	std::cout << grafica.lineas_paralelas() << std::endl;
 	std::cout << grafica.bucles() << std::endl;
+	std::cout << grafica.simple_general() << std::endl;
+	std::cout << grafica.conectada_desconectada() << std::endl;
+	std::cout << grafica.completa() << std::endl;
 }
 
 std::vector<std::vector<std::string>> capturar_datos(){
@@ -102,6 +106,7 @@ std::vector<std::vector<std::string>> capturar_datos(){
 	}
 	borrar_pantalla();
 	n = mientras_no_sea_numero<int>("Cuantas lineas tiene la grafica? ");
+	borrar_pantalla();
 	for(int i {};i < n;i++){
 		do{
 			std::cout << "La linea " << i + 1 << " sale del nodo: ";

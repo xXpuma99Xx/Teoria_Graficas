@@ -10,6 +10,8 @@ public:
 	std::vector<std::string> nodos;
 	std::vector<std::string> entradas;
 	std::vector<std::string> salidas;
+	char s_g {};
+	bool c{};
 	Matriz ad;
 	Matriz ac;
 
@@ -29,7 +31,8 @@ public:
 	std::string imprimir_linea(size_t,size_t);
 
 	std::string accesibilidad();
-
+	std::string conectada_desconectada();
+	std::string completa();
 };
 
 #endif

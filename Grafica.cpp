@@ -58,11 +58,39 @@ std::string Grafica::accesibilidad(){
 	Matriz m_aux {ad};
 	Matriz acumulada {ad};
 
-	for(size_t i{1};i < nodos.size()-1;i++){
+	for(size_t i{1};i < nodos.size();i++){
 		m_aux = Matriz {m_aux.matriz_x_matriz(ad.matriz),true};
 		acumulada = Matriz {acumulada.matriz_s_matriz(m_aux.matriz),true};
 	}
 	ac = acumulada;
 
 	return ac.imprimir_tabla_matriz();
+}
+
+std::string Grafica::conectada_desconectada(){
+	for(size_t i{};i < ac.matriz.size();i++){
+		for(size_t j{};j < ac.matriz[i].size();j++){
+			if(ac.matriz[i][j] == 0){
+				c = false;
+				return "Es una grafica desconectada\n";
+			}
+		}
+	}
+	c = true;
+	return "Es una grafica conectada\n";
+}
+
+std::string Grafica::completa(){
+	if(s_g == 'g')
+		return "No es es completa\n";
+	for(size_t i{};i < ad.matriz.size();i++){
+		for(size_t j{};j < ad.matriz[i].size();j++){
+			if(i == j)
+				;
+			else if(ad.matriz[i][j] != 1)
+				return "No es es completa\n";
+		}
+	}
+
+	return "Es completa\n";
 }

@@ -22,9 +22,7 @@ public:
 	std::string lineas_serie();
 
 	std::string simple_general();
-	std::string conectada_desconectada();
 	std::string regular();
-	std::string completa();
 	std::string arbol();
 };
 

@@ -158,18 +158,58 @@ std::string No_Dirigida::bucles(){
 
 /*
 std::string No_Dirigida::lineas_serie(){
+	std::string linea {imprimir_linea(1,8)};
+	std::vector<std::string> headers {"En serie"};
+	std::string tabla {imprimir_headers(headers,8)};
+	size_t aux{tabla.size()};
+	size_t n{entradas.size()};
+
+	for(size_t i{};i < n;i++){
+		bool paralela {};
+
+		for(size_t j{i+1};j < n;j++){
+			if((entradas[i] == entradas[j]&&salidas[i] == salidas[j])||(entradas[i] == salidas[j]&&salidas[i] == entradas[j])){
+				paralela = true;
+				break;
+			}
+		}
+	}
+	if(tabla.size() > aux)
+		tabla += linea;
+
+	return tabla;
 }
+*/
 
 std::string No_Dirigida::simple_general(){
+	bool bucle{false};
+	bool paralela{false};
+
+	for(size_t i{};i < ad.matriz.size();i++)
+		if(ad.matriz[i][i] == 1)
+			bucle = true;
+	for(size_t i{};i < entradas.size();i++){
+		for(size_t j{i+1};j < entradas.size();j++){
+			if((entradas[i] == entradas[j]&&salidas[i] == salidas[j])||(entradas[i] == salidas[j]&&salidas[i] == entradas[j])){
+				paralela = true;
+				break;
+			}
+		}
+		if(paralela)
+			break;
+	}
+
+	if(bucle || paralela){
+		s_g = 'g';
+		return "Es una grafica general\n";
+	}
+	s_g = 's';
+	return "Es una grafica simple\n";
 }
 
-std::string No_Dirigida::conectada_desconectada(){
-}
 
+/*
 std::string No_Dirigida::regular(){
-}
-
-std::string No_Dirigida::completa(){
 }
 
 std::string No_Dirigida::arbol(){

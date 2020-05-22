@@ -173,17 +173,34 @@ std::string Dirigida::bucles(){
 	return tabla;
 }
 
+std::string Dirigida::simple_general(){
+	bool bucle{false};
+	bool paralela{false};
+
+	for(size_t i{};i < ad.matriz.size();i++)
+		if(ad.matriz[i][i] == 1)
+			bucle = true;
+	for(size_t i{};i < entradas.size();i++){
+		for(size_t j{i+1};j < entradas.size();j++){
+			if(entradas[i] == entradas[j]&&salidas[i] == salidas[j]){
+				paralela = true;
+				break;
+			}
+		}
+		if(paralela)
+			break;
+	}
+
+	if(bucle || paralela){
+		s_g = 'g';
+		return "Es una digrafica general\n";
+	}
+	s_g = 's';
+	return "Es una digrafica simple\n";
+}
+
 /*
-std::string simple_general(){
-}
-
-std::string conectada_desconectada(){
-}
-
 std::string regular(){
-}
-
-std::string completa(){
 }
 
 std::string simetrica(){
