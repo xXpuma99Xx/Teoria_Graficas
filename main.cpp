@@ -32,11 +32,6 @@ T mientras_no_sea_numero(std::string texto, bool borrar = true) {
 
 int main(){
 	bool repetir{};
-	//std::vector<std::string> n {"a","b","c","d","e","f"};
-	//std::vector<std::string> s {"a","b","b","c","c","d","d","d","e"};
-	//std::vector<std::string> e {"b","a","c","b","d","c","d","e","d"};
-	//std::vector<std::string> s {"a","b","c","d","d"};
-	//std::vector<std::string> e {"a","c","d","c","b"};
 	std::vector<std::vector<std::string>> datos;
 
 	nombres();
@@ -64,7 +59,10 @@ void grafica_dirigida(std::vector<std::string> n, std::vector<std::string> s, st
 	std::cout << grafica.bucles() << std::endl;
 	std::cout << grafica.simple_general() << std::endl;
 	std::cout << grafica.conectada_desconectada() << std::endl;
+	std::cout << grafica.regular() << std::endl;
 	std::cout << grafica.completa() << std::endl;
+	std::cout << grafica.simetrica() << std::endl;
+	std::cout << grafica.balanceada() << std::endl;
 }
 
 void grafica_no_dirigida(std::vector<std::string> n, std::vector<std::string> s, std::vector<std::string> e){
@@ -80,6 +78,7 @@ void grafica_no_dirigida(std::vector<std::string> n, std::vector<std::string> s,
 	std::cout << grafica.bucles() << std::endl;
 	std::cout << grafica.simple_general() << std::endl;
 	std::cout << grafica.conectada_desconectada() << std::endl;
+	std::cout << grafica.regular() << std::endl;
 	std::cout << grafica.completa() << std::endl;
 }
 

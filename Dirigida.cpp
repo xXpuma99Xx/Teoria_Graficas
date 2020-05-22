@@ -199,13 +199,30 @@ std::string Dirigida::simple_general(){
 	return "Es una digrafica simple\n";
 }
 
-/*
-std::string regular(){
+std::string Dirigida::regular(){
+	for(size_t i{0};i < sumatorias_p.size()-1;i++)
+		if((sumatorias_p[i] != sumatorias_p[i+1])||(sumatorias_n[i] != sumatorias_n[i+1])||(sumatorias_p[i] != sumatorias_n[i]))
+			return "No es una digrafica regular\n";
+	return "Es una digrafica regular\n";
 }
 
-std::string simetrica(){
+std::string Dirigida::balanceada(){
+	for(size_t i {};i < sumatorias_p.size()-1;i++)
+		if(sumatorias_p[i] != sumatorias_n[i])
+			return "No es una digrafica balanceada\n";
+	return "Es una digrafica balancead\n";
 }
 
-std::string balanceada(){
+std::string Dirigida::simetrica(){
+	for(size_t i{};i < entradas.size();i++) {
+		bool si_hay {false};
+
+		for(size_t j{i+1};j < entradas.size();i++)
+			if((salidas[i] == entradas[j]&&(entradas[i] == salidas[j])))
+				si_hay = true;
+		if(!si_hay)
+			return "No es una digrafica simetrica\n";
+	}
+	return "Es una digrafica simetrica\n";
 }
-*/
+

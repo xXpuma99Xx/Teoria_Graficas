@@ -208,9 +208,13 @@ std::string No_Dirigida::simple_general(){
 }
 
 
-/*
 std::string No_Dirigida::regular(){
+	for(size_t i{1};i < sumatorias.size()-1;i++)
+		if(sumatorias[i] != sumatorias[i+1])
+			return "No es una grafica regular\n";
+	return "Es una grafica regular\n";
 }
+/*
 
 std::string No_Dirigida::arbol(){
 }
