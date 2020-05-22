@@ -214,8 +214,25 @@ std::string No_Dirigida::regular(){
 			return "No es una grafica regular\n";
 	return "Es una grafica regular\n";
 }
-/*
 
-std::string No_Dirigida::arbol(){
+std::string No_Dirigida::euleriana(){
+	if(!c||s_g == 'g')
+		return "No es una grafica elueriana\n";
+	for(size_t i{};i < sumatorias.size();i++)
+		if(sumatorias[i] % 2 == 1)
+			return "No es una grafica elueriana\n";
+	return "Es una grafica elueriana\n";
 }
-*/
+
+std::string No_Dirigida::unicursal(){
+	int contrador{};
+
+	if(!c||s_g == 'g')
+		return "No es una grafica unicursal\n";
+	for(size_t i{};i < sumatorias.size();i++)
+		if(sumatorias[i] % 2 == 1)
+			contrador++;
+	if(contrador > 2)
+		return "No es una grafica unicursal\n";
+	return "Es una grafica unicursal\n";
+}

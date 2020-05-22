@@ -63,6 +63,8 @@ void grafica_dirigida(std::vector<std::string> n, std::vector<std::string> s, st
 	std::cout << grafica.completa() << std::endl;
 	std::cout << grafica.simetrica() << std::endl;
 	std::cout << grafica.balanceada() << std::endl;
+	std::cout << grafica.euleriana() << std::endl;
+	std::cout << grafica.unicursal() << std::endl;
 }
 
 void grafica_no_dirigida(std::vector<std::string> n, std::vector<std::string> s, std::vector<std::string> e){
@@ -80,6 +82,8 @@ void grafica_no_dirigida(std::vector<std::string> n, std::vector<std::string> s,
 	std::cout << grafica.conectada_desconectada() << std::endl;
 	std::cout << grafica.regular() << std::endl;
 	std::cout << grafica.completa() << std::endl;
+	std::cout << grafica.euleriana() << std::endl;
+	std::cout << grafica.unicursal() << std::endl;
 }
 
 std::vector<std::vector<std::string>> capturar_datos(){

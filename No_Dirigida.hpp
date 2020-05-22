@@ -23,7 +23,8 @@ public:
 
 	std::string simple_general();
 	std::string regular();
-	//std::string arbol();
+	std::string euleriana();
+	std::string unicursal();
 };
 
 #endif

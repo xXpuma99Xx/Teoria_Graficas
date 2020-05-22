@@ -26,6 +26,8 @@ public:
 	std::string regular();
 	std::string simetrica();
 	std::string balanceada();
+	std::string euleriana();
+	std::string unicursal();
 };
 
 #endif

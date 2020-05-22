@@ -226,3 +226,24 @@ std::string Dirigida::simetrica(){
 	return "Es una digrafica simetrica\n";
 }
 
+std::string Dirigida::euleriana(){
+	if(!c||s_g == 'g')
+		return "No es una digrafica elueriana\n";
+	for(size_t i{};i < sumatorias_p.size();i++)
+		if(sumatorias_p[i] % 2 == 1||sumatorias_n[i] % 2 == 1)
+			return "No es una digrafica elueriana\n";
+	return "Es una digrafica elueriana\n";
+}
+
+std::string Dirigida::unicursal(){
+	int contrador{};
+
+	if(!c||s_g == 'g')
+		return "No es una digrafica unicursal\n";
+	for(size_t i{};i < sumatorias_p.size();i++)
+		if(sumatorias_p[i] % 2 == 1&&sumatorias_n[i] % 2 == 1)
+			contrador++;
+	if(contrador > 2)
+		return "No es una digrafica unicursal\n";
+	return "Es una digrafica unicursal\n";
+}
