@@ -156,6 +156,7 @@ std::string No_Dirigida::bucles(){
 	return tabla;
 }
 
+/*
 std::string No_Dirigida::lineas_serie(){
 }
 
@@ -173,3 +174,4 @@ std::string No_Dirigida::completa(){
 
 std::string No_Dirigida::arbol(){
 }
+*/

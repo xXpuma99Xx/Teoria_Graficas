@@ -173,6 +173,7 @@ std::string Dirigida::bucles(){
 	return tabla;
 }
 
+/*
 std::string simple_general(){
 }
 
@@ -190,3 +191,4 @@ std::string simetrica(){
 
 std::string balanceada(){
 }
+*/
